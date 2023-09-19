@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {}
+    "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
+    "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\obj\\",
+        "projectPath": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\ad\\.nuget\\packages\\",
+        "outputPath": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
