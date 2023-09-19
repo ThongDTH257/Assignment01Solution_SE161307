@@ -10,5 +10,6 @@ namespace DataAccess.Implementation
 {
     public class MemberRepository : GenericRepository<Member>, IMemberRepository
     {
+        public MemberRepository(FstoreDbContext context) : base(context) { }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Interface
 {
-    public interface IOrder : IGenericRepository<Order>
+    public interface IOrderRepository : IGenericRepository<Order>
     {
     }
 }
