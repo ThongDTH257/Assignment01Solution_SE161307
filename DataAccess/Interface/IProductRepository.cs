@@ -9,5 +9,6 @@ namespace DataAccess.Interface
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
+        List<Product> FilterSearch(string? name, decimal? minPrice, decimal? maxPrice);
     }
 }
