@@ -1,5 +1,7 @@
-﻿using BusinessObject.Models;
+﻿using BusinessObject.DTO;
+using BusinessObject.Models;
 using DataAccess.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,26 @@ namespace DataAccess.Implementation
             if(maxPrice.HasValue)
                 query = query.Where(p=>p.UnitPrice <= maxPrice.Value);
             return query.ToList();
+        }
+
+        public List<ProductView> GetFullInfo()
+        {
+            var products = context.Products.Include(c=>c.Category).ToList();
+            List<ProductView> productsView = new List<ProductView>();
+            foreach(var p in products)
+            {
+                productsView.Add(new ProductView
+                {
+                    ProductId = p.ProductId,
+                    ProductName = p.ProductName,
+                    UnitPrice = p.UnitPrice,
+                    CategoryId = p.CategoryId,
+                    Weight = p.Weight,
+                    UnitsInStock = p.UnitsInStock,
+                    Category = p.Category.CategoryName
+                });
+            }
+            return productsView;
         }
     }
 }

@@ -16,8 +16,10 @@ namespace DataAccess
         {
             this.context = context;
             Member = new MemberRepository(context);
+            Product = new ProductRepository(context);   
         }
         public IMemberRepository Member { get; private set; }
+        public IProductRepository Product { get; private set; }
 
         public void Dispose()
         {

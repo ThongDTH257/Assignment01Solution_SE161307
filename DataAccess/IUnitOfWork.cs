@@ -10,6 +10,7 @@ namespace DataAccess
     public interface IUnitOfWork : IDisposable
     {
         IMemberRepository Member { get; }
+        IProductRepository Product { get; }
         int Save();
     }
 }

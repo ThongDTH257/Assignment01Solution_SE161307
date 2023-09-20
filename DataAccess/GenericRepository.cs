@@ -34,9 +34,10 @@ namespace DataAccess
         {
             return dbSet.Find(id);
         }
-        public void Insert(T obj)
+        public void Create(T obj)
         {
             dbSet.Add(obj);
+            _context.SaveChanges();
         }
 
         public void Update(T obj)
