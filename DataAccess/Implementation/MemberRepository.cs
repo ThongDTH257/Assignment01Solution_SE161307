@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Models;
 using DataAccess.Interface;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,13 @@ namespace DataAccess.Implementation
         public MemberRepository(FstoreDbContext context) : base(context) 
         {
             this.context = context;
+        }
+
+        public async  Task<Member> Login(string email, string password)
+        {
+            var member = await context.Members
+                                .FirstOrDefaultAsync(m => m.Email == email && m.Password == password);
+            return member;
         }
     }
 }

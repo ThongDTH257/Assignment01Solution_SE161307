@@ -12,7 +12,7 @@ namespace DataAccess
         IEnumerable<T> GetAll();
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
         T GetById(object id);
-        void Create(T obj);
+        bool Create(T obj);
         void Update(T obj);
         void Delete(object id);
         void Save();

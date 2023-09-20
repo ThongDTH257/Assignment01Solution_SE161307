@@ -34,10 +34,19 @@ namespace DataAccess
         {
             return dbSet.Find(id);
         }
-        public void Create(T obj)
+        public bool Create(T obj)
         {
-            dbSet.Add(obj);
-            _context.SaveChanges();
+            try 
+            {
+                dbSet.Add(obj);
+                _context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            return true;
         }
 
         public void Update(T obj)

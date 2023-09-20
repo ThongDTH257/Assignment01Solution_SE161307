@@ -50,8 +50,8 @@ namespace eStoreAPI.Controllers
                 CategoryId = productDTO.CategoryId,
                 Weight = productDTO.Weight,
             };
-            unitOfWork.Product.Create(product); 
-            return NoContent();
+            var result = unitOfWork.Product.Create(product); 
+            return Ok(result);
         }
     }
 }
