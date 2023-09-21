@@ -11,6 +11,10 @@ namespace DataAccess
     {
         IMemberRepository Member { get; }
         IProductRepository Product { get; }
+        IOrderDetailRepository OrderDetail { get; }
+        IOrderRepository Order { get; }
+        ICategoryRepository Category { get; }
+
         int Save();
     }
 }

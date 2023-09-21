@@ -24,10 +24,11 @@ namespace eStoreAPI.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<Member>> Login([FromBody]LoginModel model)
         {
-            var member = await unitOfWork.Member.Login(model.Email, model.Password);
+            var member  = new Member();
+            member = await unitOfWork.Member.Login(model.Email, model.Password);
             if(member == null)
             {
-                return NotFound();
+                return NotFound("Invalid email or password!");
             }
             return Ok(member);
         }
