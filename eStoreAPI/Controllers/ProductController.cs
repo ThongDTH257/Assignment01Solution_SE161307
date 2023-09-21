@@ -53,5 +53,28 @@ namespace eStoreAPI.Controllers
             var result = unitOfWork.Product.Create(product); 
             return Ok(result);
         }
+
+        [HttpPut("id")]
+        public IActionResult UpdateProduct(int id, [FromBody] ProductView productView)
+        {
+            var product = unitOfWork.Product.GetById(id);
+            if (product == null) return NotFound();
+            product.UnitPrice = productView.UnitPrice;
+            product.CategoryId = productView.CategoryId;
+            product.Weight = productView.Weight;
+            product.ProductName = productView.ProductName;
+            product.UnitsInStock = productView.UnitsInStock;
+            unitOfWork.Product.Update(product);
+            return Ok(product);
+        }
+
+        [HttpDelete("id")]
+        public IActionResult DeleteProduct(int id) 
+        {
+            var product = unitOfWork.Product.GetById(id);
+            if (product == null) return NotFound();
+            unitOfWork.Product.Delete(product);
+            return NoContent();
+        }
     }
 }
