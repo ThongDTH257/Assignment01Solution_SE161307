@@ -22,12 +22,14 @@ namespace eStoreClient.Controllers
             memberApiUrl = "https://localhost:7150/api/Member";
             _logger = logger;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
             string role = HttpContext.Session.GetString("ROLE");
-            if(role== "admin")
-                return RedirectToAction("Privacy");
+            if (role == "admin")
+                return RedirectToAction("Index", "Member");
+            else if (role == "member")
+                return RedirectToAction("Profile", "Member");
             if (TempData != null)
             {
                 ViewData["SuccessMessage"] = TempData["SuccessMessage"];
@@ -35,6 +37,7 @@ namespace eStoreClient.Controllers
             }
             return View();
         }
+        [HttpPost]
         public async Task<IActionResult> Index(LoginModel loginModel)
         {
             HttpResponseMessage response = await client.GetAsync(memberApiUrl);
@@ -61,17 +64,17 @@ namespace eStoreClient.Controllers
                 if (account.Email == "admin@estore.com")
                 {
                     HttpContext.Session.SetString("ROLE", "admin");
-                    return RedirectToAction("Privacy", "Home");
+                    return RedirectToAction("Index", "Member");
                 }
                 else
                 {
                     HttpContext.Session.SetString("ROLE", "member");
-                    return RedirectToAction("Privacy", "Home");
+                    return RedirectToAction("Profile", "Member");
                 }
             }
             return View();  
         }
-
+        [HttpGet]
         public IActionResult Privacy()
         {
             return View();

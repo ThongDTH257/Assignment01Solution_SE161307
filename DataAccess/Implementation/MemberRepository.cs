@@ -17,6 +17,12 @@ namespace DataAccess.Implementation
             this.context = context;
         }
 
+        public Member GetByEmail(string email)
+        {
+            var member = context.Members.FirstOrDefault(e => e.Email == email);
+            return member;
+        }
+
         public async  Task<Member> Login(string email, string password)
         {
             var member = await context.Members

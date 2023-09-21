@@ -21,6 +21,8 @@ namespace eStoreAPI.Controllers
             var members = unitOfWork.Member.GetAll();
             return Ok(members);
         }
+        [HttpGet("Email/{email}")]
+        public ActionResult<Member> CheckEmail(string email) => unitOfWork.Member.GetByEmail(email);
         [HttpPost("Login")]
         public async Task<ActionResult<Member>> Login([FromBody]LoginModel model)
         {
@@ -32,8 +34,8 @@ namespace eStoreAPI.Controllers
             }
             return Ok(member);
         }
-        [HttpPost("Register")]
-        public ActionResult Register([FromBody]MemberCreate memberCreate)
+        [HttpPost]
+        public ActionResult Create([FromBody]MemberCreate memberCreate)
         {
             Random random = new Random();
             int id = random.Next(6, 10000);
@@ -48,7 +50,23 @@ namespace eStoreAPI.Controllers
 
             };
             var result = unitOfWork.Member.Create(member);
-            return Ok(result);
+            return NoContent();
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdateMember(int id, MemberCreate memberCreate)
+        {
+            var member = unitOfWork.Member.GetById(id);
+            if (member == null) return NotFound();
+            member.Email = memberCreate.Email;
+            member.City = memberCreate.City;
+            member.CompanyName = memberCreate.CompanyName;
+            member.Country = memberCreate.Country;
+            if(memberCreate.Password!= null && memberCreate.Password != member.Password)
+            {
+                member.Password = memberCreate.Password;
+            }
+            unitOfWork.Member.Update(member);
+            return NoContent();
         }
     }
 }
