@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source Git\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj": {}
+    "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj": {}
   },
   "projects": {
-    "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
+    "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
         "projectName": "BusinessObject",
-        "projectPath": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
-        "packagesPath": "C:\\Users\\ad\\.nuget\\packages\\",
-        "outputPath": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,21 +77,17 @@
         }
       }
     },
-    "D:\\Source Git\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source Git\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\Source Git\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj",
-        "packagesPath": "C:\\Users\\ad\\.nuget\\packages\\",
-        "outputPath": "D:\\Source Git\\Assignment01Solution_SE161307\\DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -109,8 +101,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj"
+              "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj"
               }
             }
           }
@@ -144,21 +136,17 @@
         }
       }
     },
-    "D:\\Source Git\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj": {
+    "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source Git\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj",
         "projectName": "eStoreAPI",
-        "projectPath": "D:\\Source Git\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj",
-        "packagesPath": "C:\\Users\\ad\\.nuget\\packages\\",
-        "outputPath": "D:\\Source Git\\Assignment01Solution_SE161307\\eStoreAPI\\obj\\",
+        "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\eStoreAPI\\eStoreAPI.csproj",
+        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\eStoreAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -172,11 +160,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
-                "projectPath": "D:\\Source Git\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj"
+              "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj": {
+                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\BusinessObject\\BusinessObject.csproj"
               },
-              "D:\\Source Git\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\Source Git\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\ADMIN\\source\\repos\\Assignment01Solution_SE161307\\DataAccess\\DataAccess.csproj"
               }
             }
           }
