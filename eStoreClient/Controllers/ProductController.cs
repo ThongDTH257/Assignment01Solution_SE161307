@@ -3,6 +3,7 @@ using BusinessObject.Models;
 using eStoreClient.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace eStoreClient.Controllers
 {
@@ -64,6 +65,35 @@ namespace eStoreClient.Controllers
             List<Category> categories = await ApiHandler.DeserializeApiResponse<List<Category>>(categoryApiUrl, HttpMethod.Get);
             ViewData["Categories"] = categories;
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(ProductCreateDTO product)
+        {
+            await ApiHandler.DeserializeApiResponse(productApiUrl , HttpMethod.Post, product);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Product product = await ApiHandler.DeserializeApiResponse<Product>(productApiUrl + "/" + id, HttpMethod.Get);
+            if (TempData != null)
+            {
+                ViewData["SuccessMessage"] = TempData["SuccessMessage"];
+                ViewData["ErrorMessage"] = TempData["ErrorMessage"];
+            }
+            return View(product);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(Product product)
+        {
+            HttpResponseMessage response = await client.DeleteAsync(productApiUrl + "/" + product.ProductId);
+
+            if (response.IsSuccessStatusCode)
+                return RedirectToAction("Index");
+            else
+                return View();
         }
     }
 }

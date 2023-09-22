@@ -66,7 +66,7 @@ namespace eStoreAPI.Controllers
                 member.Password = memberCreate.Password;
             }
             unitOfWork.Member.Update(member);
-            return Ok();
+            return NoContent();
         }
         [HttpDelete("{id}")]
         public IActionResult DeleteMember(int id) 

@@ -51,7 +51,7 @@ namespace eStoreAPI.Controllers
                 Weight = productDTO.Weight,
             };
             var result = unitOfWork.Product.Create(product); 
-            return Ok(result);
+            return NoContent();
         }
 
         [HttpPut("{id}")]
@@ -71,9 +71,7 @@ namespace eStoreAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id) 
         {
-            var product = unitOfWork.Product.GetById(id);
-            if (product == null) return NotFound();
-            unitOfWork.Product.Delete(product);
+            unitOfWork.Product.Delete(id);
             return NoContent();
         }
     }
