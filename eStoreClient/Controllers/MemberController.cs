@@ -75,5 +75,74 @@ namespace eStoreClient.Controllers
 
             return View();
         }
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            string role = HttpContext.Session.GetString("ROLE");
+
+            if (role == null)
+            {
+                TempData["ErrorMessage"] = "You must login to access this page.";
+                return RedirectToAction("Index", "Home");
+            }
+            else if (role != "admin")
+            {
+                TempData["ErrorMessage"] = "You don't have permission to access this page.";
+                return RedirectToAction("Profile", "Member");
+            }
+
+            Member member = await ApiHandler.DeserializeApiResponse<Member>(memberApiUrl + "/" + id, HttpMethod.Get);
+
+            if (TempData != null)
+            {
+                ViewData["SuccessMessage"] = TempData["SuccessMessage"];
+                ViewData["ErrorMessage"] = TempData["ErrorMessage"];
+            }
+
+            return View(member);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(MemberCreate memberCreate)
+        {
+            await ApiHandler.DeserializeApiResponse(memberApiUrl + "/" + memberCreate.Id, HttpMethod.Put, memberCreate);
+
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            string role = HttpContext.Session.GetString("ROLE");
+
+            if (role == null)
+            {
+                TempData["ErrorMessage"] = "You must login to access this page.";
+                return RedirectToAction("Index", "Home");
+            }
+            else if (role != "admin")
+            {
+                TempData["ErrorMessage"] = "You don't have permission to access this page.";
+                return RedirectToAction("Profile", "Member");
+            }
+            Member member = await ApiHandler.DeserializeApiResponse<Member>(memberApiUrl + "/" + id, HttpMethod.Get);
+
+            if (TempData != null)
+            {
+                ViewData["SuccessMessage"] = TempData["SuccessMessage"];
+                ViewData["ErrorMessage"] = TempData["ErrorMessage"];
+            }
+
+            return View(member);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(MemberCreate memberCreate)
+        {
+            HttpResponseMessage response = await client.DeleteAsync(memberApiUrl + "/" + memberCreate.Id);
+
+            if (response.IsSuccessStatusCode)
+                return RedirectToAction("Index");
+            else
+                return View();
+        }
+
     }
 }

@@ -9,7 +9,7 @@ namespace BusinessObject.DTO
 {
     public class MemberCreate
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; } = null!;

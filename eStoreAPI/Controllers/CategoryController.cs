@@ -19,7 +19,12 @@ namespace eStoreAPI.Controllers
         {
             this.unitOfWork = unitOfWork;
         }
-
+        [HttpGet]
+        public IActionResult GetAll() 
+        {
+            var categories = unitOfWork.Category.GetAll();
+            return Ok(categories);  
+        }
         
     }
 }

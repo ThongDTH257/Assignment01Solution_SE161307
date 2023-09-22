@@ -21,7 +21,7 @@ namespace eStoreAPI.Controllers
             var products = unitOfWork.Product.GetAll();
             return Ok(products);
         }
-        [HttpGet("category")]
+        [HttpGet("Category")]
         public ActionResult GetProductWithCategory() 
         {
             var products = unitOfWork.Product.GetFullInfo();
@@ -30,10 +30,10 @@ namespace eStoreAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<Product> GetProductById(int id) => unitOfWork.Product.GetById(id); 
 
-        [HttpGet("Search")]
-        public ActionResult SearchProduct([FromQuery] ProductFilter filter)
+        [HttpGet("Search/{keyword}")]
+        public ActionResult<List<Product>> SearchProduct(string keyword)
         {
-                var products = unitOfWork.Product.FilterSearch(filter.Name, filter.MinPrice, filter.MaxPrice);
+                var products = unitOfWork.Product.FilterSearch(keyword, null, null);
                 return Ok(products);   
         }
         [HttpPost]
@@ -54,7 +54,7 @@ namespace eStoreAPI.Controllers
             return Ok(result);
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public IActionResult UpdateProduct(int id, [FromBody] ProductView productView)
         {
             var product = unitOfWork.Product.GetById(id);
@@ -68,7 +68,7 @@ namespace eStoreAPI.Controllers
             return Ok(product);
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id) 
         {
             var product = unitOfWork.Product.GetById(id);

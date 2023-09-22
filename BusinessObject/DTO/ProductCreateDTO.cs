@@ -10,6 +10,7 @@ namespace BusinessObject.DTO
 {
     public class ProductCreateDTO
     {
+        public int ProductId { get; set; }
         [Required]
         public int? CategoryId { get; set; }
         [Required]

@@ -31,24 +31,15 @@ namespace DataAccess.Implementation
             return query.ToList();
         }
 
-        public List<ProductView> GetFullInfo()
+        public List<Product> GetFullInfo()
         {
-            var products = context.Products.Include(c=>c.Category).ToList();
-            List<ProductView> productsView = new List<ProductView>();
-            foreach(var p in products)
+            var products = new List<Product>();
+            products = context.Products.ToList();
+            products.ForEach(p =>
             {
-                productsView.Add(new ProductView
-                {
-                    ProductId = p.ProductId,
-                    ProductName = p.ProductName,
-                    UnitPrice = p.UnitPrice,
-                    CategoryId = p.CategoryId,
-                    Weight = p.Weight,
-                    UnitsInStock = p.UnitsInStock,
-                    Category = p.Category.CategoryName
-                });
-            }
-            return productsView;
+                p.Category = context.Categories.Find(p.CategoryId);
+            });
+            return products;
         }
     }
 }

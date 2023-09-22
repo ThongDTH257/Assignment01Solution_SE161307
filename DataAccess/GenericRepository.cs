@@ -53,11 +53,13 @@ namespace DataAccess
         {
             dbSet.Attach(obj);
             _context.Entry(obj).State = EntityState.Modified;
+            _context.SaveChanges();
         }
         public void Delete(object id)
         {
             T existing = dbSet.Find(id);
             dbSet.Remove(existing);
+            Save();
         }
         public void Save()
         {

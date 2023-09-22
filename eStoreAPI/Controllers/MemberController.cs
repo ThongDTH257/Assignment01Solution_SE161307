@@ -21,6 +21,8 @@ namespace eStoreAPI.Controllers
             var members = unitOfWork.Member.GetAll();
             return Ok(members);
         }
+        [HttpGet("{id}")]
+        public ActionResult<Member> GetMember(int id) => unitOfWork.Member.GetById(id);
         [HttpGet("Email/{email}")]
         public ActionResult<Member> CheckEmail(string email) => unitOfWork.Member.GetByEmail(email);
         [HttpPost("Login")]
@@ -41,7 +43,6 @@ namespace eStoreAPI.Controllers
             int id = random.Next(6, 10000);
             var member = new Member
             {
-                MemberId = id,
                 Email = memberCreate.Email,
                 Password = memberCreate.Password,
                 City = memberCreate.City,
@@ -53,10 +54,9 @@ namespace eStoreAPI.Controllers
             return NoContent();
         }
         [HttpPut("{id}")]
-        public IActionResult UpdateMember(int id, MemberCreate memberCreate)
+        public ActionResult UpdateMember(int id, MemberCreate memberCreate)
         {
             var member = unitOfWork.Member.GetById(id);
-            if (member == null) return NotFound();
             member.Email = memberCreate.Email;
             member.City = memberCreate.City;
             member.CompanyName = memberCreate.CompanyName;
@@ -66,6 +66,12 @@ namespace eStoreAPI.Controllers
                 member.Password = memberCreate.Password;
             }
             unitOfWork.Member.Update(member);
+            return Ok();
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteMember(int id) 
+        {
+            unitOfWork.Member.Delete(id);
             return NoContent();
         }
     }
